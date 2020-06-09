@@ -1,0 +1,14 @@
+<h1>My Blog</h1>
+<div class="blog-list">
+  <div *ngIf="blogs$ | async as blogs">
+    <ng-container *ngIf="blogs.length; else noBlogs">
+      <div *ngFor="let blog of blogs">
+        <h3>{{blog.title}}</h3>
+        <p>{{blog.content}}</p>
+      </div>
+    </ng-container>
+    <ng-template #noBlogs>
+      <p>Sorry...no blogs to display :(</p>
+    </ng-template>
+  </div>
+</div>
